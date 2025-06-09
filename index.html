@@ -1,32 +1,65 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>شاهد الإعلان واربح</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إعلان مدفوع</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
+    body {
       font-family: Arial, sans-serif;
-      background-color: #000;
-    }
-    .iframe-container {
-      width: 100%;
-      height: 100%;
+      text-align: center;
+      background-color: #f9f9f9;
     }
     iframe {
       width: 100%;
-      height: 100%;
+      height: 300px;
       border: none;
+      margin-top: 20px;
+    }
+    #countdown {
+      font-size: 24px;
+      margin: 20px;
+      color: #333;
+    }
+    #claimButton {
+      display: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="iframe-container">
-    <iframe src="https://lakns.com/link?z=9431601&var=testuser&ymid=testclick" allowfullscreen></iframe>
-  </div>
+
+  <h2>👀 شاهد الإعلان لكسب المكافأة 💰</h2>
+
+  <!-- إعلان زيدو -->
+  <iframe src="https://lakns.com/link?z=9431601&var=telegram&ymid=12345"></iframe>
+
+  <!-- عداد الوقت -->
+  <div id="countdown">⏳ الانتظار: 15 ثانية</div>
+
+  <!-- زر استلام المكافأة -->
+  <button id="claimButton" onclick="TelegramGameProxy.close()">استلم مكافأتك الآن</button>
+
+  <script>
+    let timeLeft = 15;
+    const countdown = document.getElementById("countdown");
+    const button = document.getElementById("claimButton");
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdown.textContent = `⏳ الانتظار: ${timeLeft} ثانية`;
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        countdown.style.display = "none";
+        button.style.display = "inline-block";
+      }
+    }, 1000);
+  </script>
+
 </body>
 </html>
